@@ -7,7 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.BlingSetCommand;
 import frc.robot.subsystems.DrivetrainSubsystem;
+import frc.robot.subsystems.Bling;
 import frc.robot.subsystems.OI;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -21,14 +23,17 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   DrivetrainSubsystem m_drivetrainsubsystem = new DrivetrainSubsystem();
+  Bling m_bling = new Bling();
   OI m_OI = new OI();
   DriveCommand m_driveCommand = new DriveCommand(m_drivetrainsubsystem, m_OI);
+  BlingSetCommand m_blingSetCommand = new BlingSetCommand(m_bling, m_OI);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
     CommandScheduler.getInstance().setDefaultCommand(m_drivetrainsubsystem, m_driveCommand);
+    CommandScheduler.getInstance().setDefaultCommand(m_bling, m_blingSetCommand);
   }
 
   /**

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 //import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class OI extends SubsystemBase {
-  public static Joystick driverController;
+  public Joystick driverController;
 
   /** Creates a new OI. */
   public OI() {
@@ -66,5 +66,9 @@ private final double RIGHT_Y_MAX = 1;
 private double RIGHT_Y_ZERO = 0;
 public double getDriverRightY() {
     return MathUtil.clamp(2.0 * (driverController.getRawAxis(5) - (RIGHT_Y_MAX + RIGHT_Y_MIN) * 0.5) / (RIGHT_Y_MAX - RIGHT_Y_MIN) - RIGHT_Y_ZERO, -1, 1);
+}
+
+public boolean getRawButton(int buttonnum) {
+  return driverController.getRawButton(buttonnum);
 }
 }
