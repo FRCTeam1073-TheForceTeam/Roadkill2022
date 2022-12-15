@@ -67,4 +67,7 @@ private double RIGHT_Y_ZERO = 0;
 public double getDriverRightY() {
     return MathUtil.clamp(2.0 * (driverController.getRawAxis(5) - (RIGHT_Y_MAX + RIGHT_Y_MIN) * 0.5) / (RIGHT_Y_MAX - RIGHT_Y_MIN) - RIGHT_Y_ZERO, -1, 1);
 }
+public boolean getRawButton(int i){
+  return driverController.getRawButton(i);
+}
 }
