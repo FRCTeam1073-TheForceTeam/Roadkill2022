@@ -1,7 +1,10 @@
-package frc.robot.subsytems;
+package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AddressableLED;
+import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class Bling extends SubsytemsBase{
+public class Bling extends SubsystemBase{
     public AddressableLED m_Led;
     public AddressableLEDBuffer m_LedBuffer;
 
@@ -17,7 +20,7 @@ public class Bling extends SubsytemsBase{
         m_Led.start();
     }
 
-    @Overide
+    @Override
     public void periodic(){
         m_Led.setData(m_LedBuffer);
     }
@@ -26,7 +29,7 @@ public class Bling extends SubsytemsBase{
         m_LedBuffer.setRGB(i, r, g, b);
     }
 
-    public void RGBAll(int r, int g, int b) {
+    public void setRGBAll(int r, int g, int b) {
         ledB = r;
         ledG = g;
         ledB = b;

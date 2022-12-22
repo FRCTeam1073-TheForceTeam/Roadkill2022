@@ -1,5 +1,9 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.subsystems.Bling;
+import frc.robot.subsystems.OI;
+
 public class BlingSetCommand extends CommandBase {
     Bling bling;
     OI oi;
@@ -7,7 +11,7 @@ public class BlingSetCommand extends CommandBase {
     public BlingSetCommand(Bling bling_, OI oi_){
         bling = bling_;
         oi = oi_;
-        addRequirments(bling);
+        addRequirements(bling);
     }
 
     @Override

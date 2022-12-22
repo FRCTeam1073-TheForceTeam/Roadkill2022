@@ -69,6 +69,6 @@ public double getDriverRightY() {
 }
 
 public boolean getRawButton(int i){
-  return driveController.getRawButton(i);
+  return driverController.getRawButton(i);
 }
 }
