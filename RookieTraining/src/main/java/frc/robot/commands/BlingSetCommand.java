@@ -27,6 +27,12 @@ public class BlingSetCommand extends CommandBase {
         else if(oi.getRawButton(2)){
             bling.setRGBAll(0, 255, 0);
         }
+        else if(oi.getRawButton(3)){
+            bling.setRGBAll(100, 20, 60);
+        }
+        else if(oi.getRawButton(4)){
+            bling.setRGBAll(10, 200, 80);
+        }
         else{
             bling.setRGBAll(0, 0, 255);        }
     }
