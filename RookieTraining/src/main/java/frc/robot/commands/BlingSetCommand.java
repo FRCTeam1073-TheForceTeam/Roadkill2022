@@ -34,7 +34,7 @@ public class BlingSetCommand extends CommandBase {
             bling.setRGBAll(10, 200, 80);
         }
         else{
-            bling.setRGBAll(0, 0, 255);        }
+            bling.setRGBAll(0, 0, 0);        }
     }
 
     @Override

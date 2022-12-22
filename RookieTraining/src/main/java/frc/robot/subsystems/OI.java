@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 //import edu.wpi.first.wpilibj2.command.button.Button;
@@ -27,6 +28,10 @@ public class OI extends SubsystemBase {
   @Override
   public void periodic() {
       // This method will be called once per scheduler run
+      SmartDashboard.putBoolean("Button 1", getRawButton(1));
+      SmartDashboard.putBoolean("Button 2", getRawButton(2));
+      SmartDashboard.putBoolean("Button 3", getRawButton(3));
+      SmartDashboard.putBoolean("Button 4", getRawButton(4));
   }
 
   public void zeroDriverController() {
