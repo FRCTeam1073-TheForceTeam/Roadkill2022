@@ -22,6 +22,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   DrivetrainSubsystem m_drivetrainsubsystem = new DrivetrainSubsystem();
   OI m_OI = new OI();
+  Blin m_bling = new Bling();
   DriveCommand m_driveCommand = new DriveCommand(m_drivetrainsubsystem, m_OI);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -48,5 +49,4 @@ public class RobotContainer {
     // An ExampleCommand will run in autonomous
     return null;
   }
-
 }
