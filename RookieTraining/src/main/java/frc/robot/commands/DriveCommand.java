@@ -26,8 +26,9 @@ public class DriveCommand extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    drivetrain.setPower(0.5*OI.driverController.getRawAxis(1));
+  public void execute() 
+  {
+    //drivetrain.setPower(0.5*OI.driverController.getRawAxis(1));
   }
 
   // Called once the command ends or is interrupted.
