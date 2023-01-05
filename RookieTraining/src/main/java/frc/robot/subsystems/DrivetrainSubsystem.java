@@ -47,6 +47,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Motor Velocity", getVelocity());
     SmartDashboard.putNumber("Motor Position", getPosition());
     SmartDashboard.putNumber("Motor Temperatur", getMotorTemperature());
-    power = SmartDashboard.getNumber("Motor percent Output", power * 0.5);
+    power = SmartDashboard.getNumber("Motor percent Output", power);
   }
 }
