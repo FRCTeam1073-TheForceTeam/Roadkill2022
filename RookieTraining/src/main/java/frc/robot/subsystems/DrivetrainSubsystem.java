@@ -15,6 +15,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
   public WPI_TalonFX testMotor;
   public int ticksPerRevolution = 2048;
 
+  public double power = 0.0;
+
   /** Creates a new DrivetrainSubsystem. */
   public DrivetrainSubsystem() {
     // Initialize devices here:
@@ -22,6 +24,8 @@ public class DrivetrainSubsystem extends SubsystemBase {
     testMotor.configFactoryDefault();
     testMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
     testMotor.setSelectedSensorPosition(0);
+    SmartDashboard.putNumber("Motor Percent Output", getVelocity());
+
   }
 
   public double getPosition() {
@@ -37,13 +41,16 @@ public class DrivetrainSubsystem extends SubsystemBase {
   }
 
   public void setPower(double power) {
-    testMotor.set(ControlMode.PercentOutput, power*.5);
+    testMotor.set(ControlMode.PercentOutput, power * .5);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     SmartDashboard.putNumber("Motor Velocity", getVelocity());
+    SmartDashboard.putNumber("Motor Position", getPosition());
     SmartDashboard.putNumber("Motor Temperature", getMotorTemperature());
+    power = SmartDashboard.getNumber("Motor Percent Output", power);
+
   }
 }
