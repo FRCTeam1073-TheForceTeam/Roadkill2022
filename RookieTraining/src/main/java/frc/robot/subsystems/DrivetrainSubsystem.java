@@ -20,6 +20,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     testMotor.configFactoryDefault();
     testMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
     testMotor.setSelectedSensorPosition(0);
+    SmartDashboard.putNumber("Motor percent Output", getVelocity());
   }
 
   public double getPosition() {
@@ -41,5 +42,9 @@ public class DrivetrainSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Motor Velocity", getVelocity());
+    SmartDashboard.putNumber("Motor Position", getPosition());
+    SmartDashboard.putNumber("Motor Temperatur", getMotorTemperature());
+    power = SmartDashboard.getNumber("Motor percent Output", power);
   }
 }

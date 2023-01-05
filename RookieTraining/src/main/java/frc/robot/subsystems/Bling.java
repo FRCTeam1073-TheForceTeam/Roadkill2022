@@ -18,11 +18,22 @@ public class Bling extends SubsystemBase{
         m_Led.setLength(m_LedBuffer.getLength());
         m_Led.setData(m_LedBuffer);
         m_Led.start();
+        SmartDashboard.putnumber("R Value", ledR);
+        SmartDashboard.putnumber("G Value", ledG);
+        SmartDashboard.putnumber("B Value", ledB);
     }
 
     @Override
     public void periodic(){
+        //Ths method will be called once per scheduler run
         m_Led.setData(m_LedBuffer);
+        //SmartDashboard.putBoolean("Update", false);
+        //if(SmartDashboard.getBoolean("Update", false)){
+            ledR = (int)SmartDashboard.getNumber("R Value", ledR);
+            ledG = (int)SmartDashboard.getNumber("G Value", ledG);
+            ledB = (int)SmartDashboard.getNumber("B Value", ledB);
+            setRGBAll(ledR, ledG, ledB);
+    //}
     }
 
     public void setRGB(int i, int r, int g, int b) {
