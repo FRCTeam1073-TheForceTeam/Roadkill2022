@@ -3,7 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Bling extends SubsystemBase{
     public AddressableLED m_Led;
@@ -19,9 +19,9 @@ public class Bling extends SubsystemBase{
         m_Led.setLength(m_LedBuffer.getLength());
         m_Led.setData(m_LedBuffer);
         m_Led.start();
-        SmartDashboard.putnumber("R Value", ledR);
-        SmartDashboard.putnumber("G Value", ledG);
-        SmartDashboard.putnumber("B Value", ledB);
+        SmartDashboard.putNumber("R Value", ledR);
+        SmartDashboard.putNumber("G Value", ledG);
+        SmartDashboard.putNumber("B Value", ledB);
     }
 
     @Override
