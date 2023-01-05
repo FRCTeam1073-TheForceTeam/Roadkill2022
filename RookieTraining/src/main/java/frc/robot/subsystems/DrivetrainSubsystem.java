@@ -7,12 +7,14 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DrivetrainSubsystem extends SubsystemBase {
   // Define devices here:
   public WPI_TalonFX testMotor;
   public int ticksPerRevolution = 2048;
 
+  public double power = 0.0;
   /** Creates a new DrivetrainSubsystem. */
   public DrivetrainSubsystem() {
     // Initialize devices here:
@@ -20,6 +22,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     testMotor.configFactoryDefault();
     testMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
     testMotor.setSelectedSensorPosition(0);
+    SmartDashboard.putNumber("Motor percent output", getVelocity());
   }
 
   public double getPosition() {
@@ -41,5 +44,9 @@ public class DrivetrainSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Motor Velocity", getVelocity());
+    SmartDashboard.putNumber("Motor Position", getPosition());
+    SmartDashboard.putNumber("Motor Temperature", getMotorTemperature());
+    power = SmartDashboard.getNumber("Motor percent Output", power * 0.5);
   }
 }

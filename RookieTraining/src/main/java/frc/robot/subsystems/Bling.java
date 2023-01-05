@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AddressableLED;
 import edu.wpi.first.wpilibj.AddressableLEDBuffer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Bling extends SubsystemBase {
@@ -24,12 +25,20 @@ public class Bling extends SubsystemBase {
     m_Led.setLength(m_LedBuffer.getLength());
     m_Led.setData(m_LedBuffer);
     m_Led.start();
+    SmartDashboard.putNumber("R Value", ledR);
+    SmartDashboard.putNumber("G Value", ledG);
+    SmartDashboard.putNumber("B Value", ledB);
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
     m_Led.setData(m_LedBuffer);
+
+    ledR = (int)SmartDashboard.getNumber("R Value", ledR);
+    ledR = (int)SmartDashboard.getNumber("G Value", ledG);
+    ledR = (int)SmartDashboard.getNumber("B Value", ledB);
+    setRGBALL(ledR, ledG, ledB);
       
   }
   public void setRGB(int i, int r, int g, int b){

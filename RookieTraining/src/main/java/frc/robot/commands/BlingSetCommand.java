@@ -24,7 +24,7 @@ public class BlingSetCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    bling.setRGBALL(2, 3, 132);  //pink/redish
+    bling.setRGBALL(2, 3, 190);  //pink/redish
   }
 
   // Called every time the scheduler runs while the command is scheduled.
