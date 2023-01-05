@@ -7,6 +7,8 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DrivetrainSubsystem extends SubsystemBase {
   // Define devices here:
@@ -45,6 +47,6 @@ public class DrivetrainSubsystem extends SubsystemBase {
     SmartDashboard.putNumber("Motor Velocity", getVelocity());
     SmartDashboard.putNumber("Motor Position", getPosition());
     SmartDashboard.putNumber("Motor Temperatur", getMotorTemperature());
-    power = SmartDashboard.getNumber("Motor percent Output", power);
+   // power = SmartDashboard.getNumber("Motor percent Output", power);
   }
 }
